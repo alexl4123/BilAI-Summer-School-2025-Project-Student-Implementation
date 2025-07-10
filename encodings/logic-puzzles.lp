@@ -11,6 +11,7 @@ number(N)  :- input(A,N,V).
 assigned(ID,POS,N) :- object(ID,POS,A,V), assign(A,V,N).
 
 :- assign(A,V1,N),assign(A,V2,N),V1!=V2.
+:- index(A), input(A,N,V), not assign(A,V,N).
 
 % DIFF CONSTRAINT
 :- assigned(ID,POS1,N1), assigned(ID,POS2,N2), clue(ID,diff), N1=N2,POS1!=POS2.
